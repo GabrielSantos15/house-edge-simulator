@@ -11,11 +11,21 @@ class SimulationConfig:
     max_rounds: int | None = None
 
 
-config = SimulationConfig(
-    experiment_id=1,
-    players=100,
-    initial_bank=100,
-    bet=5,
-    strategy="Fixed Bet",
-    roulette="European"
-)
+configs = [
+    SimulationConfig(
+        experiment_id=1,
+        players=1000,
+        initial_bank=1000,
+        bet=50,
+        strategy="Fixed Bet",
+        roulette="European"
+    ),
+    SimulationConfig(
+        experiment_id=2,
+        players=1000,
+        initial_bank=1000,
+        bet=50,
+        strategy="Martingale",
+        roulette="European"
+    ),
+]
