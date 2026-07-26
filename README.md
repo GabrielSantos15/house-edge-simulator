@@ -86,14 +86,12 @@ house-edge-simulator/
 │   └── historico.csv
 │
 ├── dashboard/
-│   └── HouseEdge.pbix
+│   └── house_edge_dashboard.pbix
 │
 ├── README.md
 ├── requirements.txt
 └── .gitignore
 ```
-
-> 💡 A estrutura acima reflete a organização-alvo do projeto. Ajuste conforme a evolução real do repositório.
 
 ---
 
