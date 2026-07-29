@@ -1,10 +1,13 @@
 import random
-from strategies import fixed_bet, martingale
+from strategies import fixed_bet, martingale,fibonacci,dalembert
 
 STRATEGIES = {
     "Fixed Bet": fixed_bet.get_bet,
     "Martingale": martingale.get_bet,
+    "Fibonacci": fibonacci.get_bet,
+    "D'Alembert": dalembert.get_bet,
 }
+ 
 
 VERMELHOS = {
     1, 3, 5, 7, 9, 12, 14, 16, 18,
