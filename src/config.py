@@ -14,7 +14,7 @@ class SimulationConfig:
 configs = [
     SimulationConfig(
         experiment_id=1,
-        players=500,
+        players=1000,
         initial_bank=1000,
         bet=50,
         strategy="Fixed Bet",
@@ -22,7 +22,7 @@ configs = [
     ),
         SimulationConfig(
         experiment_id=2,
-        players=500,
+        players=1000,
         initial_bank=1000,
         bet=50,
         strategy="D'Alembert",
@@ -30,7 +30,7 @@ configs = [
     ),
     SimulationConfig(
         experiment_id=3,
-        players=500,
+        players=1000,
         initial_bank=1000,
         bet=50,
         strategy="Fibonacci",
@@ -38,7 +38,7 @@ configs = [
     ),
     SimulationConfig(
         experiment_id=4,
-        players=500,
+        players=1000,
         initial_bank=1000,
         bet=50,
         strategy="Martingale",

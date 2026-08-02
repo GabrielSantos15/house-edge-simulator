@@ -1,5 +1,5 @@
 experimento;jogadores;banca_inicial;valor_aposta;estrategia;roleta
-1;500;1000;50;Fixed Bet;European
-2;500;1000;50;D'Alembert;European
-3;500;1000;50;Fibonacci;European
-4;500;1000;50;Martingale;European
+1;1000;1000;50;Fixed Bet;European
+2;1000;1000;50;D'Alembert;European
+3;1000;1000;50;Fibonacci;European
+4;1000;1000;50;Martingale;European

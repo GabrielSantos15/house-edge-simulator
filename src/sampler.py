@@ -17,7 +17,7 @@ def create_history_sample(
 
     historico_amostra = []
 
-    # Processa os experimentos
+    # Processa cada experimento separadamente
     for experimento in df_resumo["experimento"].unique():
 
         resumo_exp = df_resumo[df_resumo["experimento"] == experimento]
@@ -68,9 +68,6 @@ def create_round_summary(historico):
 
         df_exp = df[df["experimento"] == experimento]
 
-        # Linhas = rodadas
-        # Colunas = jogadores
-        # Valores = saldo após cada rodada
         pivot_df = df_exp.pivot_table(
             index="rodada",
             columns="jogador",
@@ -79,13 +76,10 @@ def create_round_summary(historico):
 
         total_jogadores = pivot_df.shape[1]
 
-        # Mantém o último saldo conhecido do jogador e considera 0 para
-        # quem já faliu (saldo_final chega a exatamente 0 na falência)
+        # Mantém o último saldo conhecido do jogador e considera 0 para quem já faliu 
         pivot_df = pivot_df.ffill().fillna(0)
 
         # Contagem de jogadores que efetivamente apostaram naquela rodada
-        # (alinhada explicitamente ao índice do pivot, em vez de depender
-        # da ordem do groupby coincidir com a do pivot_table)
         jogadores_ativos = (
             df_exp.groupby("rodada")["jogador"]
             .nunique()
@@ -108,6 +102,13 @@ def create_round_summary(historico):
             "saldo_minimo": pivot_df.min(axis=1).values,
             "desvio_padrao": pivot_df.std(axis=1).values,
         })
+
+        # Adiciona uma última rodada para encerrar o experimento no dashboard.
+        ultima_linha = summary.iloc[[-1]].copy()
+        ultima_linha["rodada"] += 1
+        ultima_linha["jogadores_ativos"] = 0
+
+        summary = pd.concat([summary, ultima_linha], ignore_index=True)
 
         round_summaries.append(summary)
 

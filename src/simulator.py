@@ -34,7 +34,7 @@ def run_simulation(config):
     for jogador in range(1, config.players + 1):
 
         current_bet = config.bet
-        won = True  # estado inicial "neutro": libera a aposta base na 1ª rodada
+        won = True 
         saldo = config.initial_bank
         maior_banca = saldo
         rodada = 0
@@ -52,10 +52,8 @@ def run_simulation(config):
 
             aposta_desejada = get_bet(state)
 
-            # Se a banca não cobre o valor pedido pela estratégia
-            # (comum no Martingale, que dobra a cada derrota), o jogador
-            # vai all-in com o que sobrou em vez de simplesmente parar
-            # de jogar com um saldo "preso" que nunca chegou a ser testado.
+            # Se a banca não cobre o valor pedido pela estratégia, 
+            # o jogador vai all-in com o que sobrou 
             bet = min(aposta_desejada, saldo)
 
             saldo_antes = saldo
